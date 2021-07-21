@@ -1,11 +1,11 @@
 module.exports = {
-	extends: "standard",
-	env: {
-		jest: true,
-	},
-	rules: {
-		"no-unused-vars": 1,
-		semi: 0,
-		"space-before-function-paren": 0,
-	},
+  extends: 'standard',
+  env: {
+    jest: true
+  },
+  rules: {
+    'no-unused-vars': 1,
+    semi: 0,
+    'space-before-function-paren': 0
+  }
 };
