@@ -9,18 +9,18 @@ const {
   getArchEnemies,
   checkPizzaShopOpen,
   callPizzaShop,
-  cookHealthyMeal,
+  cookHealthyMeal
 } = require('./utils/index');
 
 function fetchSuperHeroes() {}
 
 function fetchEnemies() {}
 
-function handleNonCompleteRequest() {}
-
 function orderPizza() {}
 
 function readJSONFiles() {}
+
+function handleNonCompleteRequest() {}
 
 function hackBatman() {}
 
@@ -30,5 +30,5 @@ module.exports = {
   hackBatman,
   handleNonCompleteRequest,
   readJSONFiles,
-  orderPizza,
+  orderPizza
 };

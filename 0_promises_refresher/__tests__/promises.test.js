@@ -43,24 +43,6 @@ describe('fetchEnemies', function () {
   });
 });
 
-describe('handleNonCompleteRequest', function () {
-  test('numbers < 0.3 resolve with You win!', () => {
-    return handleNonCompleteRequest(0.1).then((result) => {
-      expect(result).toBe('You win!');
-    });
-  });
-  test('numbers === 0.3 resolve with You win!', () => {
-    return handleNonCompleteRequest(0.3).then((result) => {
-      expect(result).toBe('You win!');
-    });
-  });
-  test('numbers > 0.3 resolve with House wins!', () => {
-    return handleNonCompleteRequest(0.4).then((result) => {
-      expect(result).toBe('House wins!');
-    });
-  });
-});
-
 describe('orderPizza', function () {
   test('resolves with a pizza if the shop is open and phone number is valid', () => {
     return orderPizza("Liam's Special Pizza").then((result) => {
@@ -83,18 +65,20 @@ describe('orderPizza', function () {
 
 describe('readJSONFiles', function () {
   test('resolves with an array with a single files contents parsed to JS', () => {
-    return readJSONFiles(['data/villains/v1.json']).then((files) => {
-      expect(files[0]).toEqual({
-        id: 'v1',
-        name: 'The Joker'
-      });
-    });
+    return readJSONFiles([`${__dirname}/../data/villains/v1.json`]).then(
+      (files) => {
+        expect(files[0]).toEqual({
+          id: 'v1',
+          name: 'The Joker'
+        });
+      }
+    );
   });
   test('resolves with an array of multiple files in the correct order', () => {
     const paths = [
-      'data/villains/v1.json',
-      'data/villains/v2.json',
-      'data/villains/v3.json'
+      `${__dirname}/../data/villains/v1.json`,
+      `${__dirname}/../data/villains/v2.json`,
+      `${__dirname}/../data/villains/v3.json`
     ];
     const villains = [
       {
@@ -112,6 +96,24 @@ describe('readJSONFiles', function () {
     ];
     return readJSONFiles(paths).then((files) => {
       expect(files).toEqual(villains);
+    });
+  });
+});
+
+describe('handleNonCompleteRequest', function () {
+  test('numbers < 0.3 resolve with You win!', () => {
+    return handleNonCompleteRequest(0.1).then((result) => {
+      expect(result).toBe('You win!');
+    });
+  });
+  test('numbers === 0.3 resolve with You win!', () => {
+    return handleNonCompleteRequest(0.3).then((result) => {
+      expect(result).toBe('You win!');
+    });
+  });
+  test('numbers > 0.3 resolve with House wins!', () => {
+    return handleNonCompleteRequest(0.4).then((result) => {
+      expect(result).toBe('House wins!');
     });
   });
 });
