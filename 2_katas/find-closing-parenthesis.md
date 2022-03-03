@@ -35,3 +35,7 @@ findClosingParenthesis('Hello, (world). (Something Else).', 2);
 findClosingParenthesis('Hello, (world, (foo) bar (something) else), foo (bar) cat', 3);
   --> 35
 ```
+```javascript
+findClosingParenthesis('Hello, (world, (foo) bar (something) else), foo (bar) cat', 1);
+  --> 41
+```
