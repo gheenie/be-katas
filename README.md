@@ -4,9 +4,13 @@
 
 The running order for this block's katas:
 
-### Week 1: `0_promises_refresher`
+### Week 1: `0_katas`
 
-Instructions can be found in `0_promises_refresher/running_order.md`
+1. counterIntelligence
+2. secondsToTimeString
+3. sumConsecutiveDuplicates
+4. supermarketQueue
+5. findClosingParenthesis
 
 ### Week 2: `1_data_manipulation`
 
@@ -15,13 +19,7 @@ Instructions can be found in `0_promises_refresher/running_order.md`
 3. createRef
 4. formatAlbums
 
-### Week 3: `2_katas`
-
-1. counterIntelligence
-2. secondsToTimeString
-3. sumConsecutiveDuplicates
-4. supermarketQueue
-5. findClosingParenthesis
+### Week 3: `return to the katas not completed`
 
 ## Setup Instructions
 
