@@ -13,31 +13,22 @@ const findClosingParenthesis = (str, openBracketCount) => {
     str = str.substring(indexOnCurrentStr + 1);
   }
 
-  // No nested brackets in our desired brackets.
-  // Handle situation where there's no more '(', which returns a smaller indexOf('(').
-  if (str.indexOf(')') < str.indexOf('(') && str.indexOf('(') !== -1) {
-    const indexOnCurrentStr = str.indexOf(')');
-    currentIndexOnOriginalStr += indexOnCurrentStr + 1;
-    return currentIndexOnOriginalStr;
-  }
-
   // Will be -1 after getting the desired ')'
   // +1 on a nested '(', -1 when that nested '(' is closed, finally -1 AGAIN on our desired ')'
   let currentNestingLevel = 0;
-  
-  while (currentNestingLevel !== -1) {
-    // Handle situation where there's no more '(', which returns a smaller indexOf('(').
-    if (str.indexOf('(') < str.indexOf(')') && str.indexOf('(') !== -1) {
-      const indexOnCurrentStr = str.indexOf('(');
-      currentIndexOnOriginalStr += indexOnCurrentStr + 1;
-      str = str.substring(indexOnCurrentStr + 1);
-      currentNestingLevel++;
-    } else {
-      const indexOnCurrentStr = str.indexOf(')');
-      currentIndexOnOriginalStr += indexOnCurrentStr + 1;
-      str = str.substring(indexOnCurrentStr + 1);
+
+  for (let i = 0; i < str.length; i++) {
+    currentIndexOnOriginalStr++;
+
+    const currentChar = str[i];
+
+    if (currentChar === ')') {
       currentNestingLevel--;
+    } else if (currentChar === '(') {
+      currentNestingLevel++;
     }
+    
+    if (currentNestingLevel === -1) return currentIndexOnOriginalStr;
   }
 
   return currentIndexOnOriginalStr;
