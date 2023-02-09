@@ -2,21 +2,22 @@
 const findClosingParenthesis = (str, openBracketCount) => {
   if (str === '' || openBracketCount === undefined) return -1;
 
-  // The index we would be at if str was not being substringed.
   let currentIndex = 0;
 
   // Go to the index just after the desired '('
   while (openBracketCount !== 0) {
-    if (str[currentIndex] === '(') openBracketCount--;
+    const currentChar = str[currentIndex];
+
+    if (currentChar === '(') openBracketCount--;
 
     currentIndex++;
   }
 
-  // Will be -1 after getting the desired ')'
-  // +1 on a nested '(', -1 when that nested '(' is closed, finally -1 AGAIN on our desired ')'
+  // Will be -1 on the index of the desired ')'
+  // 0 means same level as desired '(' but it's not closed yet
   let currentNestingLevel = 0;
 
-  for (; currentIndex < str.length; currentIndex) {
+  for ( ; currentIndex < str.length; ) {
     const currentChar = str[currentIndex];
 
     if (currentChar === ')') {
